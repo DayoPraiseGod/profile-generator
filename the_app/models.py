@@ -26,8 +26,11 @@ class Portfolio(models.Model):
     whatsapp = models.CharField(max_length=200, blank=True, null=True)
     profile_pic = models.ImageField(null=True, blank=True)
 
+    class Meta:
+        ordering = ('-pk',)
+
     def __str__(self):
-        return (self.full_name).upper()
+        return f'{self.full_name.upper()} -- {str(self.pk)}'
 
     @property
     def profile_picURL(self):

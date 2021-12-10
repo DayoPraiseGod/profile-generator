@@ -14,6 +14,6 @@ def get_user_data(request):
 
 def index(request):
     user = Portfolio.objects.all()
-    p_user = user[len(user)-1]
-    content = {'user': p_user}
-    return render(request, 'the_app/index.html', content)
+    p_user = user[0]
+    context = {'user': p_user}
+    return render(request, 'the_app/index.html', context)
